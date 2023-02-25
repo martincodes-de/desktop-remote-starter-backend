@@ -38,7 +38,7 @@ func main() {
 		var queryParameter = request.URL.Query()
 
 		if queryParameter.Get("apikey") != httpApiKey {
-			writer.WriteHeader(http.StatusForbidden)
+			writer.WriteHeader(http.StatusUnauthorized)
 			io.WriteString(writer, "No/wrong apikey provided")
 			return
 		}
