@@ -50,7 +50,9 @@ func main() {
 			return
 		}
 
-		src.TurnOnComputer(isBrowserVisible, fritzBoxUrl, userName, userPassword, machineName)
+		go src.TurnOnComputer(isBrowserVisible, fritzBoxUrl, userName, userPassword, machineName)
+
+		writer.WriteHeader(http.StatusNoContent)
 	})
 
 	fmt.Println("Server started with port " + httpPort)
